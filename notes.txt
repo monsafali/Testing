@@ -61,3 +61,11 @@ if(conected means connection successfuly established
 again go to your local system cat ~/.ssh/id_rsa  -----> copy all content 
 
 
+
+
+
+
+docker stop $(docker ps -q)
+docker rm $(docker ps -aq)
+docker rmi -f $(docker images -q)
+docker volume prune -f
