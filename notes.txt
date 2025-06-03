@@ -1,0 +1,26 @@
+ make-connection to the cloud
+chmod 400 your id_rsa_key
+ ssh -i id_rsa username@instance-ip-address
+
+
+cp-your folder to the cloud
+ scp -i id_rsa mydirector username@instance-ip-address
+scp -r ./your-mern-app ec2-user@your-ec2-ip:/home/ec2-user
+
+scp -i <mykeypath> -r <myDirectorypath> <myservername>@<myserverIp>
+:/home/ubuntu
+
+
+on the cloucd
+sudo apt update && sudo apt install docker.io docker-compose -y
+sudo usermod -aG docker $USER
+newgrp docker
+
+
+
+build the docker compose  this make the images
+docker-compose build
+
+then run this command the will make the docker container on running stage
+docker-compose up -d
+
