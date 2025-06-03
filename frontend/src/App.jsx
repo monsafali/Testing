@@ -5,6 +5,8 @@ import Signup from "./components/Signup";
 import Welcome from "./components/Welcome";
 import { AuthProvider, useAuth } from "./AuthContext";
 import ResetPassword from "./components/ResetPassword";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth();
@@ -13,22 +15,27 @@ function ProtectedRoute({ children }) {
 
 function App() {
   return (
-    <AuthProvider>
-      <Navbar />
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/welcome"
-          element={
-            <ProtectedRoute>
-              <Welcome />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/reset-password/:token" element={<ResetPassword />} />
-      </Routes>
-    </AuthProvider>
+    <>
+      <AuthProvider>
+        <Navbar />
+        <Home />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/welcome"
+            element={
+              <ProtectedRoute>
+                <Welcome />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
+        </Routes>
+
+        <Footer />
+      </AuthProvider>
+    </>
   );
 }
 

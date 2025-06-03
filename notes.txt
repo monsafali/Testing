@@ -23,7 +23,7 @@ build the docker compose  this make the images
 
 
 then run this command the will make the docker container on running stage
- docker-compose up -d
+docker-compose up -d
 
 
 
@@ -69,3 +69,9 @@ docker stop $(docker ps -q)
 docker rm $(docker ps -aq)
 docker rmi -f $(docker images -q)
 docker volume prune -f
+
+
+git pull origin main
+docker-compose down
+docker-compose up -d --build
+
