@@ -24,3 +24,39 @@ docker-compose build
 then run this command the will make the docker container on running stage
 docker-compose up -d
 
+
+
+
+
+Using Github Action
+
+
+
+run on local system this will created the two file called id_rsa.pub & id_rsa
+ssh-keygen -t rsa -b 4096 -C "github-to-ec2"
+
+
+create aws ec2 instance
+
+chmod 600 ~/.ssh/mykey.pem
+
+Upload public key (~/.ssh/id_rsa.pub) to EC2:
+
+ssh -i ~/.ssh/mykey.pem ubuntu@16.16.58.16
+
+now youre terminal is connected to cloud
+inside here run this
+mkdir -p ~/.ssh
+nano ~/.ssh/authorized_keys
+copy the local system id_rsa.pub file content and pas here on this file 
+
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+exit
+ssh ubuntu@16.16.58.16
+
+if(conected means connection successfuly established
+
+again go to your local system cat ~/.ssh/id_rsa  -----> copy all content 
+
+
